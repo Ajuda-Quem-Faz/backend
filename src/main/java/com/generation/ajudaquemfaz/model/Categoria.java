@@ -10,11 +10,11 @@ import jakarta.validation.constraints.Size;
 public class Categoria {
 	
 	@NotBlank(message = "O Atributo Setor é obrigatório")
-	@Size(max = 255, message = "O Atributo Setor deve conter no máximo 255 caractéres")
+	@Size(max = 255, message = "O Atributo Setor deve conter no máximo 255 caractéres.")
 	private String setor;
 
-	@Size(max =255, message = "O tipo serviço deve conter entre 5 e 255 caracteres.")
-	@NotBlank
+	@NotBlank(message = "O atributo tipo serviço é obrigatório")
+	@Size(max =255, message = "O Atributo tipo serviço deve conter no máximo 255 caracteres.")
 	public String tipoServico;
 	
 	
