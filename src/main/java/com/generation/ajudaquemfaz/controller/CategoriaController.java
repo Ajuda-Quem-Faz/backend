@@ -1,9 +1,13 @@
 package com.generation.ajudaquemfaz.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +28,15 @@ public class CategoriaController {
 	@Autowired
 	public CategoriaRepository categoriaRepository;
 	
+	@GetMapping("/setor/{setor}")
+	public ResponseEntity<List<Categoria>> getAllBySetor(@PathVariable String setor){
+		return ResponseEntity.ok(categoriaRepository.findAllBySetorContainingIgnoreCase(setor));
+	}
+	
+	@GetMapping("/servico/{servico}")
+	public ResponseEntity<List<Categoria>> getAllByServico(@PathVariable String servico){
+		return ResponseEntity.ok(categoriaRepository.findAllByTipoServicoContainingIgnoreCase(servico));
+	}
 	
 	//Método para Criação da categoria
 	@PostMapping
