@@ -1,9 +1,16 @@
 package com.generation.ajudaquemfaz.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.PathVariable;
+=======
+>>>>>>> 76b962eb98fabd048bd4c19364c9114494ac25f9
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +31,10 @@ public class CategoriaController {
 	@Autowired
 	public CategoriaRepository categoriaRepository;
 	
+	@GetMapping
+	public ResponseEntity<List<Categoria>> getAll() {
+		return ResponseEntity.ok(categoriaRepository.findAll());
+	}
 	
 	//Método para Criação da categoria
 	@PostMapping
@@ -38,6 +49,14 @@ public class CategoriaController {
 			return ResponseEntity.status(HttpStatus.OK).body(categoriaRepository.save(categoria));
 		
 		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não existe.", null);
+	}
+	
+	//Método para pegar Categoria por Id
+	@GetMapping("/{id}")
+	public ResponseEntity<Categoria> getById(@PathVariable Long id) {
+		return categoriaRepository.findById(id)
+				.map(resposta -> ResponseEntity.ok(resposta))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 	
 }
