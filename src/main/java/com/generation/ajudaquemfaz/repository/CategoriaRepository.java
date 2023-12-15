@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.generation.ajudaquemfaz.model.Categoria;
 
-interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 	// Achar por tipo de serviço
 	List<Categoria> findAllByTipoServicoContainingIgnoreCase(@Param("servico") String servico);
