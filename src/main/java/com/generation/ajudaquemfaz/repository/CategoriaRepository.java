@@ -10,7 +10,7 @@ import com.generation.ajudaquemfaz.model.Categoria;
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
 
 	// Achar por tipo de serviço
-	List<Categoria> findAllByTipoServicoContainingIgnoreCase(@Param("servico") String servico);
+	List<Categoria> findAllByTipoServicoContainingIgnoreCase(@Param("servico") String tipoServico);
 
 	// Achar por Setor
 	List<Categoria> findAllBySetorContainingIgnoreCase(@Param("setor") String setor);
