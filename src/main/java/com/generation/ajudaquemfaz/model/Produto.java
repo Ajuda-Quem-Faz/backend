@@ -36,11 +36,11 @@ public class Produto {
 	private BigDecimal preco;
 
 	private String foto;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Usuario usuario;
@@ -99,9 +99,6 @@ public class Produto {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}	
-	
-	
-	
+	}
 
 }

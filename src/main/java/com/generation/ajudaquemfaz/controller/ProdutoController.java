@@ -47,7 +47,8 @@ public class ProdutoController {
 		return produtoRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	// Método para buscar Produto por nome 
+
+	// Método para buscar Produto por nome
 	@GetMapping("/nome/{nome}")
 	ResponseEntity<List<Produto>> getByProduto(@PathVariable String nome) {
 		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
@@ -60,7 +61,7 @@ public class ProdutoController {
 			return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.save(produto));
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe", null);
 	}
-	
+
 	// Editar Produto
 	@PutMapping
 	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
