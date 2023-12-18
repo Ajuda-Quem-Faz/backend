@@ -7,4 +7,6 @@ import jakarta.persistence.Table;
 @Table(name="tb_produtos")
 public class Produto {
 	
+	// TODO : criar atributos da model 'Produtos'
+	
 }
