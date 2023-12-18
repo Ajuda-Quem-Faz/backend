@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -31,6 +32,7 @@ public class Produto {
 	@Size(max = 500, message = "A descrição não pode ultrapassar dos 500 caracteres.")
 	private String descricao;
 
+	@NotNull
 	@Digits(integer = 7, fraction = 2)
 	@DecimalMin(value = "0.5", message = "O preço mínimo dos produtos é R$ 0,50")
 	private BigDecimal preco;
