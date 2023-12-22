@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,25 +24,28 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank(message = "O atributo nome é obrigatório!")
 	private String nome;
-	
+
 	@Email
 	@NotBlank(message = "O atributo usuario é obrigatório!")
 	private String usuario;
-	
-	@Size (max = 5000, message = "O link da foto não pode maior do que 5000 caracteres")
+
+	@Column(length = 500)
+	@Size(max = 500, message = "O sobre não pode ultrapassar os 500 caracteres.")
+	private String sobre;
+
+	@Size(max = 5000, message = "O link da foto não pode maior do que 5000 caracteres")
 	private String foto;
-	
+
 	@NotBlank(message = "O atributo senha é obrigatório!")
 	@Size(min = 8, message = "O Atributo senha deve conter no mínimo 8 caracteres!")
 	private String senha;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Produto> produto;
-	
 
 	public Long getId() {
 		return id;
@@ -82,6 +86,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
+	public String getSobre() {
+		return sobre;
+	}
+
+	public void setSobre(String sobre) {
+		this.sobre = sobre;
+
+	}
 }
