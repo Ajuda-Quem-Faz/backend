@@ -36,6 +36,7 @@ public class Usuario {
 	@Size(max = 500, message = "O sobre não pode ultrapassar os 500 caracteres.")
 	private String sobre;
 
+	@Column(length = 5000)
 	@Size(max = 5000, message = "O link da foto não pode maior do que 5000 caracteres")
 	private String foto;
 
@@ -94,5 +95,13 @@ public class Usuario {
 	public void setSobre(String sobre) {
 		this.sobre = sobre;
 
+	}
+	
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
 }
