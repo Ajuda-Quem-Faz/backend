@@ -8,6 +8,7 @@ import com.generation.ajudaquemfaz.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
+	// Encontrar Usuario com nome especifico
 	public Optional<Usuario> findByUsuario(String usuario);
 	
 }

@@ -94,6 +94,7 @@ public class UsuarioService {
 
     }
 
+	// Criptografia da senha
 	private String criptografarSenha(String senha) {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -102,6 +103,7 @@ public class UsuarioService {
 
 	}
 
+	// Geração do Token Bearer
 	private String gerarToken(String usuario) {
 		return "Bearer " + jwtService.generateToken(usuario);
 	}

@@ -23,6 +23,7 @@ public class UserDetailsImpl implements UserDetails {
 
     public UserDetailsImpl() {	}
 
+    // Default Roles
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 

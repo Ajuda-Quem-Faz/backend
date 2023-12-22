@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.ajudaquemfaz.model.Usuario;
 import com.generation.ajudaquemfaz.repository.UsuarioRepository;
 
+// Classe Serviço que utiliza Interface UserDetailsService
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	
