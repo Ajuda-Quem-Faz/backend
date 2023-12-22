@@ -31,6 +31,7 @@ public class Usuario {
 	@NotBlank(message = "O atributo usuario é obrigatório!")
 	private String usuario;
 	
+	@Size (max = 5000, message = "O link da foto não pode maior do que 5000 caracteres")
 	private String foto;
 	
 	@NotBlank(message = "O atributo senha é obrigatório!")
