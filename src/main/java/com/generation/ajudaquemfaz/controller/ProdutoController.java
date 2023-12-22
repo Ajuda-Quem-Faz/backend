@@ -34,6 +34,7 @@ public class ProdutoController {
 	private ProdutoRepository produtoRepository;
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
 
 	// Método para listar todos os Produtos
 	@GetMapping
@@ -55,7 +56,7 @@ public class ProdutoController {
 	}
 
 	// Criar novo Produto
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
 		if (categoriaRepository.existsById(produto.getCategoria().getId()))
 			return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.save(produto));
@@ -63,7 +64,7 @@ public class ProdutoController {
 	}
 
 	// Editar Produto
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
 		if (produtoRepository.existsById(produto.getId()))
 			if (categoriaRepository.existsById(produto.getCategoria().getId()))
